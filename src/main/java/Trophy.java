@@ -1,11 +1,37 @@
+import Enums.Fish;
+
 public class Trophy {
     private Fish fish;
-    private long size;
-    private long length;
+    private double length;
+    private double weight;
 
-    public Trophy(Fish fish, long size, long length) {
+    public Trophy(Fish fish, double length, double weight) {
         this.fish = fish;
-        this.size = size;
         this.length = length;
+        this.weight = weight;
+    }
+
+    public Fish getFish() {
+        return fish;
+    }
+
+    public void setFish(Fish fish) {
+        this.fish = fish;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
     }
 }
