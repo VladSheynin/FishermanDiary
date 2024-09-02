@@ -14,6 +14,16 @@ public class Person {
         Surname = surname;
         this.birthdate = birthdate;
     }
+    public Person(String family, String name, String surname) {
+        this.family = family;
+        this.name = name;
+        Surname = surname;
+    }
+
+    public Person(String family, String name) {
+        this.family = family;
+        this.name = name;
+    }
 
     public String getFamily() {
         return family;

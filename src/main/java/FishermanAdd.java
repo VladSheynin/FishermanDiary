@@ -42,8 +42,8 @@ public class FishermanAdd {
     public static void addFisherman(List<Fishrman> fmans,Person person, List fisshermanTypes,List trophy)
     {
         fmans.add(new Fishrman(person));
-        fmans.get(Fishrman.number_of_fisherman-1).setFishermanTypes(fisshermanTypes);
-        fmans.get(Fishrman.number_of_fisherman-1).setTrophies(trophy);
+        fmans.get(Fishrman.getNumber_of_fisherman()-1).setFishermanTypes(fisshermanTypes);
+        fmans.get(Fishrman.getNumber_of_fisherman()-1).setTrophies(trophy);
 
     }
 }
