@@ -3,6 +3,6 @@ package Enums;
 public enum FishermanTypes {
     SPINNING, //хищник
     FIDER, //фидер
-    FLOPAT, //попалвок
+    FLOAT, //попалвок
     OCEAN //морская и океанская рыбалка
 }

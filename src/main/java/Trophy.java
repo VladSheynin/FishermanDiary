@@ -1,6 +1,8 @@
 import Enums.Fish;
 
-public class Trophy {
+import java.io.Serializable;
+
+public class Trophy implements Serializable {
     private Fish fish;
     private double length;
     private double weight;

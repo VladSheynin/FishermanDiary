@@ -1,11 +1,17 @@
 import Enums.FishermanTypes;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-    public class Fishrman extends Person{
+    public class Fishrman extends Person implements Serializable {
+        private static final long  serialVersionUID = 1;
         private static int number_of_fisherman=0;
         private List<FishermanTypes> fishermanTypes;
         private List<Trophy> trophies;
+
+        private Fishrman() {
+            super();
+        }
 
         public Fishrman(String family, String name, String surname, LocalDate birthdate) {
             super(family, name, surname, birthdate);
@@ -58,9 +64,10 @@ import java.util.List;
                 fishermanTypesToLine = fishermanTypesToLine + fishermanTypes1.name()+"\n";
             }
 
-            return "Fishrman -" + this.getFamily()+ " "+ this.getName() +" " + this.getSurname()+"\n" +
-                    "Fisherman types:"+ "\n" + fishermanTypesToLine +
-                    "Trophies=" + "\n"+ trophiesToLine +
-                    "___________________________";
+            return "Fishrman - " + this.getFamily()+ " "+ this.getName() +" " + this.getSurname()+"\n" +
+                    "birthdate = " + getBirthdate() + "\n"+
+                    "Fisherman types: "+ "\n" + fishermanTypesToLine +
+                    "Trophies: " + "\n"+ trophiesToLine +
+                    "__________________________________________";
         }
     }

@@ -5,24 +5,28 @@ import java.util.Date;
 public class Person {
     private String family;
     private String name;
-    private String Surname;
+    private String surname;
     private LocalDate birthdate;
 
     public Person(String family, String name, String surname, LocalDate birthdate) {
         this.family = family;
         this.name = name;
-        Surname = surname;
+        surname = surname;
         this.birthdate = birthdate;
     }
     public Person(String family, String name, String surname) {
         this.family = family;
         this.name = name;
-        Surname = surname;
+        surname = surname;
     }
 
     public Person(String family, String name) {
         this.family = family;
         this.name = name;
+    }
+
+    public Person() {
+
     }
 
     public String getFamily() {
@@ -42,11 +46,14 @@ public class Person {
     }
 
     public String getSurname() {
-        return Surname;
+        if (surname==null)
+            return "";
+        else
+            return surname;
     }
 
     public void setSurname(String surname) {
-        Surname = surname;
+        surname = surname;
     }
 
     public LocalDate getBirthdate() {
@@ -62,7 +69,7 @@ public class Person {
         return "Person{" +
                 "family='" + family + '\'' +
                 ", name='" + name + '\'' +
-                ", Surname='" + Surname + '\'' +
+                ", Surname='" + surname + '\'' +
                 ", birthdate=" +  birthdate+
                 '}';
     }
