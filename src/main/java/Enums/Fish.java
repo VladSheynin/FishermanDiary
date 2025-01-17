@@ -1,7 +1,12 @@
+/**
+ * Перечисление всех рыб
+ * @author Sheynin Vladislav
+ */
 package Enums;
 
 public enum Fish {
-    PIKE,
-    ZANDER,
-    PERCH
+    PIKE, //щука
+    ZANDER, //судак
+    PERCH,//окунь
+    TAIMEN //таймень
 }

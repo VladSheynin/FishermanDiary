@@ -1,13 +1,17 @@
+/**
+ * Технический класс для создания рыбаков в памяти. Будет заменен после обучения работе с БД
+ * наполнение локальное, используя различные конструкторы класса Fisherman
+ * @author Sheynin Vladislav
+ */
 import Enums.Fish;
 import Enums.FishermanTypes;
-
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FishermanAdd {
-
+    private static String fileName = "fishermans";
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         List<Fishrman> fishermans = new ArrayList<>();
         ArrayList<FishermanTypes>[] fishermanTypes = new ArrayList[3];
@@ -22,12 +26,13 @@ public class FishermanAdd {
 
         fishermanTypes[0].add(FishermanTypes.SPINNING);
         fishermanTypes[0].add(FishermanTypes.OCEAN);
-        trouphes[0].add(new Trophy(Fish.ZANDER,82,4.9));
-        trouphes[0].add(new Trophy(Fish.PIKE,86,6.5));
+        trouphes[0].add(new Trophy(Fish.ZANDER,0.82,4.9));
+        trouphes[0].add(new Trophy(Fish.PIKE,1.05,6.5));
+        trouphes[0].add(new Trophy(Fish.TAIMEN,1.45,25.0));
         fishermanTypes[1].add(FishermanTypes.FIDER);
-        trouphes[1].add(new Trophy(Fish.PERCH,30,0.6));
+        trouphes[1].add(new Trophy(Fish.PERCH,0.30,0.6));
         fishermanTypes[2].add(FishermanTypes.FLOAT);
-        //trouphes[2].add(new Trophy(Fish.PERCH,10,0.21));
+        trouphes[2].add(new Trophy(Fish.PERCH,0.10,0.21));
 
         addFisherman(fishermans,new Person("Шейнин", "Владислав", "Эдуардович", LocalDate.of(1974,4,13)),
                 fishermanTypes[0],
@@ -39,7 +44,6 @@ public class FishermanAdd {
                 fishermanTypes[2],
                 trouphes[2]);
 
-
         writeFishermansSerialization(fishermans);
         List<Fishrman> fishermansOut = new ArrayList<>();
         fishermansOut= readFishermansSerialization();
@@ -47,7 +51,7 @@ public class FishermanAdd {
     }
 
     public static void writeFishermansSerialization(List<Fishrman> fmans)  {
-        try(ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream("C:\\Projects\\fisherman"))) {
+        try(ObjectOutputStream oos= new ObjectOutputStream(new FileOutputStream(fileName))) {
             oos.writeObject(fmans);
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -56,12 +60,11 @@ public class FishermanAdd {
 
     public static List<Fishrman> readFishermansSerialization() throws IOException, ClassNotFoundException {
         List<Fishrman> fmans = new ArrayList<>();
-        try(ObjectInputStream ois= new ObjectInputStream(new FileInputStream("C:\\Projects\\fisherman"))) {
-            fmans = (List<Fishrman>) ois.readObject();
+        try(ObjectInputStream ois= new ObjectInputStream(new FileInputStream(fileName))) {
+            return (List<Fishrman>) ois.readObject();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return fmans;
     }
 
     public static void printAllFishermans(List<Fishrman> fishrmanList){
